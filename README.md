@@ -4,7 +4,7 @@
 目前文档资料部分只写了函数文档，以后可能会慢慢补充；At present, only function documents are written in the documentation section, which may be supplemented gradually in the future
 将pgframe文件夹放到site-packages下就可以如同其他库一样使用了；Put the pgframe folder under site-packages and you can use it just like other libraries
 使用方法:；usage method:
-1.创建项目；Create project
+#1.创建项目；Create project#
   打开idle，输入:；Open idle and enter:
   from pgframe import *
   shell()
@@ -13,7 +13,7 @@
   <project path>
 
   然后pgframe会自动生成一个框架在你的<project path>下；Then pgframe will automatically generate a framework under your < project Path >
-2.游戏框架说明；Game framework description
+#2.游戏框架说明；Game framework description#
   游戏框架主要包括:；The game framework mainly includes:
   main.py 游戏启动文件，运行它就可以启动游戏；Game startup file, run it to start the game
   views.py 最重要的文件之一，控制游戏的界面；One of the most important files to control the game's interface
@@ -28,7 +28,7 @@
   程序编写主要需要编写view.py controller.py和models.py；Programming mainly needs to be written view.py controller.py and models.py
   
   每一个框架中的class都含有inst属性(上一级对象，可以为None)和Loading(self, **kwargs)方法(代替__init__的空方法)；The class in each framework contains the Inst attribute (the upper level object, which can be none) and the loading (self, * * kwargs) method (instead of__ init__ Empty method of)
-3.创建第一个视图；Create the first view
+#3.创建第一个视图；Create the first view#
   在view.py下创建一个新的视图:
   class xxxx(View):
     pass
@@ -44,7 +44,7 @@
     .SetPos(positon)
     .SetSize(size)
     现在运行游戏，窗口内依然什么也没有，因为所有能显示在屏幕上的内容都由components决定
-4.Pic组件
+#4.Pic组件#
   游戏使用png格式的图片，将其放在.../data/img/下的任意文件夹内(比如/data/img/example/background.png)，文件名background则是游戏中使用的名称。因此，pgframe不允许图片重名，那怕它们不在同一个文件夹内；The game uses PNG format pictures and places them in any folder under... / data / img / (for example, / data / img / example/ background.png ）The file name background is the name used in the game. Therefore, pgframe does not allow images to have duplicate names, even if they are not in the same folder
   还有一种情况，将多张图片放在同一文件夹下，并在该文件目录下添加一个空的__init__.py文件，那么这个目录会被视为一个图片，该目录名即为游戏中使用的名称，不能与其他图片同名，该目录下的单个图片不与其他图片名称冲突In another case, put multiple pictures in the same folder and add an empty one to the file directory __init__.py file, then this directory will be treated as an image. The directory name is the name used in the game and cannot have the same name with other pictures. The single picture in this directory does not conflict with other picture names
   在程序编写时只需通过Pic组件和图片名即可使用图片，例如在重写某个class view的Loading方法是时为该view对象添加图片:；When writing a program, you only need to use the picture through the pic component and the picture name. For example, when the loading method of a class view is rewritten, add a picture to the view object:
@@ -81,11 +81,11 @@
     : param sign: String sets the variable name of the component in inst, and none means not to add
   """
   此外，框架提供了Area、Progress、Text、Collide、Locomotor组件，详细帮助请查看pgframe/view.py
-6.Controller控制器
+#5.Controller控制器#
   pass
 
 
-# --------------------------------------------------------------------------------
+# --------------------------------------------------------------------------------#
 我会附带上传一些例子，便于理解和模仿用法
 translation by: Baidu Translation
   
