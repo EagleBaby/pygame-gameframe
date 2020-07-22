@@ -1,5 +1,4 @@
 # pygame-gameframe  
-=====
 * 仅供个人学习使用，不得用于商业目的；For personal study only, not for commercial purposes  
 * 这是一个基于pygame的封装框架，效率也不是很高，主要的目的是让写小游戏变得更容易；This is a pyGame based packaging framework, and its efficiency is not very high. The main purpose is to make it easier to write small games  
 * 目前文档资料部分只写了函数文档，以后可能会慢慢补充；At present, only function documents are written in the documentation section, which may be supplemented gradually in the future  
