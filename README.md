@@ -38,13 +38,13 @@
     * 在Root类下添加如下方法，即可完成对刚刚创建的视图的载入  
     * def Loading(self, **kwargs):  # view的载入方法  
       * self.AddView(xxxx)  
-    * 常用的基本载入方法有:  
+  * 常用的基本载入方法有:  
     * .AddView(class, ...)  
     * .AddComponent(string, **kwargs)  
     * .LogController(string)  
     * .SetPos(positon)  
     * .SetSize(size)  
-    * 现在运行游戏，窗口内依然什么也没有，因为所有能显示在屏幕上的内容都由components决定  
+  * 现在运行游戏，窗口内依然什么也没有，因为所有能显示在屏幕上的内容都由components决定  
 # 4.Pic组件  
   * 游戏使用png格式的图片，将其放在.../data/img/下的任意文件夹内(比如/data/img/example/background.png)，文件名background则是游戏中使用的名称。因此，pgframe不允许图片重名，那怕它们不在同一个文件夹内；The game uses PNG format pictures and places them in any folder under... / data / img / (for example, / data / img / example/ background.png ）The file name background is the name used in the game. Therefore, pgframe does not allow images to have duplicate names, even if they are not in the same folder  
   * 还有一种情况，将多张图片放在同一文件夹下，并在该文件目录下添加一个空的__init__.py文件，那么这个目录会被视为一个图片，该目录名即为游戏中使用的名称，不能与其他图片同名，该目录下的单个图片不与其他图片名称冲突In another case, put multiple pictures in the same folder and add an empty one to the file directory __init__.py file, then this directory will be treated as an image. The directory name is the name used in the game and cannot have the same name with other pictures. The single picture in this directory does not conflict with other picture names  
@@ -81,7 +81,7 @@
     * : param end_Func: function (PIC = pic components) allows pic to activate the function when it is about to hide  
     * : param sign: String sets the variable name of the component in inst, and none means not to add  
   * """  
-  * 此外，框架提供了Area、Progress、Text、Collide、Locomotor组件，详细帮助请查看pgframe/view.py  
+  * 此外，框架提供了Area、Progress、Text、Collide、Locomotor组件，详细帮助请查看pgframe/components.py  
 # 5.Controller控制器  
   * pass  
   
