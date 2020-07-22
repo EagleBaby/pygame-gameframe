@@ -5,14 +5,14 @@
 将pgframe文件夹放到site-packages下就可以如同其他库一样使用了；Put the pgframe folder under site-packages and you can use it just like other libraries  
 使用方法:；usage method:  
 #1.创建项目；Create project  
-  打开idle，输入:；Open idle and enter:  
-  from pgframe import *  
-  shell()  
-  然后依次输入:；Then enter:  
-  new  
-  <project path>  
+    打开idle，输入:；Open idle and enter:  
+    from pgframe import *  
+    shell()  
+    然后依次输入:；Then enter:  
+    new  
+    <project path>  
   
-  然后pgframe会自动生成一个框架在你的<project path>下；Then pgframe will automatically generate a framework under your < project Path >  
+    然后pgframe会自动生成一个框架在你的<project path>下；Then pgframe will automatically generate a framework under your < project Path >  
 #2.游戏框架说明；Game framework description  
   游戏框架主要包括:；The game framework mainly includes:  
   main.py 游戏启动文件，运行它就可以启动游戏；Game startup file, run it to start the game  
