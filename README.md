@@ -1,8 +1,8 @@
 # pygame-gameframe  
-仅供个人学习使用，不得用于商业目的；For personal study only, not for commercial purposes  
-这是一个基于pygame的封装框架，效率也不是很高，主要的目的是让写小游戏变得更容易；This is a pyGame based packaging framework, and its efficiency is not very high. The main purpose is to make it easier to write small games  
-目前文档资料部分只写了函数文档，以后可能会慢慢补充；At present, only function documents are written in the documentation section, which may be supplemented gradually in the future  
-将pgframe文件夹放到site-packages下就可以如同其他库一样使用了；Put the pgframe folder under site-packages and you can use it just like other libraries  
+* 仅供个人学习使用，不得用于商业目的；For personal study only, not for commercial purposes  
+* 这是一个基于pygame的封装框架，效率也不是很高，主要的目的是让写小游戏变得更容易；This is a pyGame based packaging framework, and its efficiency is not very high. The main purpose is to make it easier to write small games  
+* 目前文档资料部分只写了函数文档，以后可能会慢慢补充；At present, only function documents are written in the documentation section, which may be supplemented gradually in the future  
+* 将pgframe文件夹放到site-packages下就可以如同其他库一样使用了；Put the pgframe folder under site-packages and you can use it just like other libraries  
 使用方法:；usage method:  
 # 1.创建项目；Create project  
 * 打开idle，输入:；Open idle and enter:  
@@ -36,7 +36,7 @@
     * 在view.py下默认有一个Root(View)类，这个是游戏的view入口，即程序会第一个载入该视图  
     * 在Root类下添加如下方法，即可完成对刚刚创建的视图的载入  
     * def Loading(self, **kwargs):  # view的载入方法  
-    * self.AddView(xxxx)  
+      * self.AddView(xxxx)  
     * 常用的基本载入方法有:  
     * .AddView(class, ...)  
     * .AddComponent(string, **kwargs)  
