@@ -6,7 +6,7 @@ PgFrame(PyGame Frame)是一个用于快速便捷的开发中小型2d游戏的pyt
 
 程序结构上大致采用MVC的框架结构:
 
-![](https://github.com/EagleBaby/pygame-gameframe/blob/master/readme%20images/PyGame%20Frame1045.png)
+![image](https://github.com/EagleBaby/pygame-gameframe/blob/master/readme%20images/PyGame%20Frame166.png)
 
 (各部分间的调用顺序)
 
