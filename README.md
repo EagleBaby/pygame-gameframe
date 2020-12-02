@@ -1,6 +1,6 @@
 #          **PyGame Frame**
 ####  本项目没有任何收益，本项目仅供学习交流，不得用于商业目的
-####  如有侵权，请告知作者2229066748@qq.com，随即将会删除该内容
+####  如有侵权，请告知作者[2229066748@qq.com](http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=2_np6eLr7e3s7_Obqqr1uLS2)，随即将会删除该内容
 
 1.  简介:
 
