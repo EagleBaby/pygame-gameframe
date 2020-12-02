@@ -7,7 +7,7 @@ Frame)是一个用于快速便捷的开发中小型2d游戏的python模块(不�
 
 程序结构上大致采用MVC的框架结构:
 
-![image](https://github.com/EagleBaby/pygame-gameframe/tree/master/images/PgFrame166.png)
+![image](https://github.com/EagleBaby/pygame-gameframe/raw/master/images/PgFrame166.png)
 
 (各部分间的调用顺序)
 
@@ -31,7 +31,7 @@ PgFrame在底层上继承了PyGame灵活快速的特点(这使得PgFrame能在�
 
 下载对应的python whl文件后pip安装。安装完毕后使用pgframe version查看pgframe版本，若成功显示版本则安装成功
 
-![image](https://github.com/EagleBaby/pygame-gameframe/tree/master/images/PgFrame825.png)
+![image](https://github.com/EagleBaby/pygame-gameframe/raw/master/images/PgFrame825.png)
 
 成功后若缺少开头提到的依赖库，使用cmd命令pgframe support自动安装这些库, 安装过程中没有报错即可完成安装.
 
@@ -45,11 +45,11 @@ PgFrame在底层上继承了PyGame灵活快速的特点(这使得PgFrame能在�
 
 例如这里使用的路径是C:\Users\bluesky\Desktop\MyProject
 
-![image](https://github.com/EagleBaby/pygame-gameframe/tree/master/images/PgFrame1045.png)
+![image](https://github.com/EagleBaby/pygame-gameframe/raw/master/images/PgFrame1045.png)
 
 打开对应的项目目录，里面应当出现如下文件:
 
-![image](https://github.com/EagleBaby/pygame-gameframe/tree/master/images/PgFrame1069.png)
+![image](https://github.com/EagleBaby/pygame-gameframe/raw/master/images/PgFrame1069.png)
 
  **__init__.py**  : 所有的__init.py__文件都没有实际的意义(这是在库安装时需要的)
 
@@ -86,7 +86,7 @@ MVC的Model部分，模型用于实现游戏逻辑和有关算法，拥有最多
 
 所以，更贴切一点的说， PgFrame的结构应当为MVC + C的结构，记做MCV-C:
 
-![image](https://github.com/EagleBaby/pygame-gameframe/tree/master/images/PgFrame1975.png)
+![image](https://github.com/EagleBaby/pygame-gameframe/raw/master/images/PgFrame1975.png)
 
 
 
@@ -101,11 +101,11 @@ settings.py，然后把资源文件放置于对应的文件夹下，最后编写
 
 修改完成后运行main.py查看效果:
 
-![image](https://github.com/EagleBaby/pygame-gameframe/tree/master/images/PgFrame2159.png)
+![image](https://github.com/EagleBaby/pygame-gameframe/raw/master/images/PgFrame2159.png)
 
 ②.然后我们选择一张300x200的png格式的图片(test.png)放置于data/img/下:
 
-![image](https://github.com/EagleBaby/pygame-gameframe/tree/master/images/PgFrame2212.png)
+![image](https://github.com/EagleBaby/pygame-gameframe/raw/master/images/PgFrame2212.png)
 
 ③.最后编写文件:
 
@@ -113,17 +113,19 @@ settings.py，然后把资源文件放置于对应的文件夹下，最后编写
 
 打开views.py文件，里面已有一段内容:
 
-![image](https://github.com/EagleBaby/pygame-gameframe/tree/master/images/PgFrame2296.png)
+![image](https://github.com/EagleBaby/pygame-gameframe/raw/master/images/PgFrame2296.png)
 
 我们在Main.Loading下添加两行代码，分别实现图片和文本的效果:
 
 self.AddComponent("Pic", ArtDef="test")  # 添加test图片
 
-self.AddComponent("Text",text="hello,world!",size=40,justify=(20,40),color=(255,197,50))![image](https://github.com/EagleBaby/pygame-gameframe/tree/master/images/PgFrame2475.png)
+self.AddComponent("Text",text="hello,world!",size=40,justify=(20,40),color=(255,197,50))
+
+![image](https://github.com/EagleBaby/pygame-gameframe/raw/master/images/PgFrame2475.png)
 
 还是运行main.py查看效果
 
-![image](https://github.com/EagleBaby/pygame-gameframe/tree/master/images/PgFrame2493.png)
+![image](https://github.com/EagleBaby/pygame-gameframe/raw/master/images/PgFrame2493.png)
 
 (至此我们的入门项目就算完成了，更多的信息请查看函数文档和具体的实例)
 
@@ -131,7 +133,7 @@ self.AddComponent("Text",text="hello,world!",size=40,justify=(20,40),color=(255,
 
 若依照安装步骤安装了pyinstaller，这可以对游戏项目进行打包，打开build.xml，修改好有关内容后关闭:
 
-![image](https://github.com/EagleBaby/pygame-gameframe/tree/master/images/PgFrame2598.png)
+![image](https://github.com/EagleBaby/pygame-gameframe/raw/master/images/PgFrame2598.png)
 
 (这里作为单个文件打包)
 
@@ -143,12 +145,12 @@ pgframe build C:\Users\bluesky\Desktop\MyProject
 
 回车后，若没有出现异常，则应当出现如下的画面:
 
-![image](https://github.com/EagleBaby/pygame-gameframe/tree/master/images/PgFrame2745.png)
+![image](https://github.com/EagleBaby/pygame-gameframe/raw/master/images/PgFrame2745.png)
 
 （最容易出现的问题则是.dll文件无法拷贝的情形，请关闭杀毒软件后重试）
 
 此时在项目文件夹下应当出现一个exported文件夹，里面就是我们打包好的.exe文件了:
 
-![image](https://github.com/EagleBaby/pygame-gameframe/tree/master/images/PgFrame2830.png)![image](https://github.com/EagleBaby/pygame-gameframe/tree/master/images/PgFrame2831.png)
+![image](https://github.com/EagleBaby/pygame-gameframe/raw/master/images/PgFrame2830.png)![image](https://github.com/EagleBaby/pygame-gameframe/tree/master/images/PgFrame2831.png)
 
 （有时可能会出现游戏所需资源没有拷贝完全的情况，请用户手动拷贝即可）
