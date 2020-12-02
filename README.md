@@ -2,7 +2,7 @@
 ####  本项目没有任何收益，本项目仅供学习交流，不得用于商业目的
 ####  如有侵权，请告知作者[2229066748@qq.com](http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=2_np6eLr7e3s7_Obqqr1uLS2)，随即将会删除该内容
 
-1.  简介:
+**1.  简介:**
 
 PgFrame(PyGame
 Frame)是一个用于快速便捷的开发中小型2d游戏的python模块(不支持对大型游戏的优化)，结构上使用高度单元化的模块结构构建游戏（通过搭建MVC的形式完成游戏的制作），可以使程序员更多的将精力集中于游戏逻辑，提高开发效率。
@@ -29,7 +29,7 @@ PgFrame在底层上继承了PyGame灵活快速的特点(这使得PgFrame能在�
 
 
 
-2. 入门使用
+**2. 入门使用 **
 
 下载对应的python whl文件后pip安装。安装完毕后使用pgframe version查看pgframe版本，若成功显示版本则安装成功
 
@@ -41,7 +41,7 @@ PgFrame在底层上继承了PyGame灵活快速的特点(这使得PgFrame能在�
 
 接下来我们创建一个带有图片的hello，world!例程:
 
-1) . 创建项目：
+1）. 创建项目：
 
 打开cmd，输入pgframe new [path]([path]是你选择的文件夹路径，项目将创建在这个路径下，该路径下已有的文件将被移除)
 
@@ -95,7 +95,7 @@ MVC的Model部分，模型用于实现游戏逻辑和有关算法，拥有最多
  **一般来说，只需要用户先定义好
 settings.py，然后把资源文件放置于对应的文件夹下，最后编写models.py、controllers.py和views.py即可** ****
 
-2)  .编写项目:
+2）.编写项目:
 
 ①.按照第一点中的编写顺序，我们先修改settings.py中的内容:
 
@@ -131,7 +131,7 @@ self.AddComponent("Text",text="hello,world!",size=40,justify=(20,40),color=(255,
 
 (至此我们的入门项目就算完成了，更多的信息请查看函数文档和具体的实例)
 
-3) .*打包项目:
+3）.*打包项目:
 
 若依照安装步骤安装了pyinstaller，这可以对游戏项目进行打包，打开build.xml，修改好有关内容后关闭:
 
