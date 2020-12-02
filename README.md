@@ -29,7 +29,7 @@ PgFrame在底层上继承了PyGame灵活快速的特点(这使得PgFrame能在�
 
 
 
-**2. 入门使用 **
+**2. 入门使用**
 
 下载对应的python whl文件后pip安装。安装完毕后使用pgframe version查看pgframe版本，若成功显示版本则安装成功
 
