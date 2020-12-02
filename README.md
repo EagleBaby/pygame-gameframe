@@ -155,3 +155,4 @@ pgframe build C:\Users\bluesky\Desktop\MyProject
 
 ![image](https://github.com/EagleBaby/pygame-gameframe/raw/master/images/PgFrame2830.png)![image](https://github.com/EagleBaby/pygame-gameframe/raw/master/images/PgFrame2831.png)
 
+...后续会更新例程...
