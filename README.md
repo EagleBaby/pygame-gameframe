@@ -1,95 +1,135 @@
-# pygame-gameframe  
-* 仅供个人学习使用，不得用于商业目的；For personal study only, not for commercial purposes  
-* 这是一个基于pygame的封装框架，效率也不是很高，主要的目的是让写小游戏变得更容易；This is a pyGame based packaging framework, and its efficiency is not very high. The main purpose is to make it easier to write small games  
-* 目前文档资料部分只写了函数文档，以后可能会慢慢补充；At present, only function documents are written in the documentation section, which may be supplemented gradually in the future  
-* 将pgframe文件夹放到site-packages下就可以如同其他库一样使用了；Put the pgframe folder under site-packages and you can use it just like other libraries  
-使用方法:；usage method:  
-# 1.创建项目；Create project  
-* 打开idle，输入:；Open idle and enter:  
-* from pgframe import *  
-* shell()  
-* 然后依次输入:；Then enter:  
-* new  
-* 'project path'
-  
-* 然后pgframe会自动生成一个框架在你的'project path'下；Then pgframe will automatically generate a framework under your < project Path >  
-# 2.游戏框架说明；Game framework description  
-* 游戏框架主要包括:；The game framework mainly includes:  
-* main.py 游戏启动文件，运行它就可以启动游戏；Game startup file, run it to start the game  
-* views.py 最重要的文件之一，控制游戏的界面；One of the most important files to control the game's interface  
-* events.py 定义事件，每个事件被push后只能被接受一次，可以无限push；Define events. Each event can only be accepted once after being pushed, and can be pushed infinitely  
-* models.py 定义存储数据的结构与一些用户定义的运算方法；Define the structure of stored data and some user-defined operation methods  
-* settings.py 程序设置；Program settings  
-* components.py 编写用户自定义的组件；Write user-defined components  
-* controllers.py 编写用户自定义的控制器；Write user-defined controllers  
-* DataManager.py 工具，对models.py中定义好的数据结构添加实例；this is a tool, right models.py Add instance of defined data structure in  
-* *AnimManager.py 工具，制作pgframe原生支持的动画文件(还没有写完这个部分，目前还不可用)；this is a tool, create animation files supported by pgframe(This part has not been finished and is not available at present)  
-  
-* 程序编写主要需要编写view.py controller.py和models.py；Programming mainly needs to be written view.py controller.py and models.py  
-  
-* 每一个框架中的class都含有inst属性(上一级对象，可以为None)和Loading(self, **kwargs)方法(代替__init__的空方法)；The class in each framework contains the Inst attribute (the upper level object, which can be none) and the loading (self, * * kwargs) method (instead of__ init__ Empty method of)  
-# 3.创建第一个视图；Create the first view  
-* 在view.py下创建一个新的视图:  
-* class xxxx(View):  
-    * pass  
-  * 载入刚才创建的视图:  
-    * 在view.py下默认有一个Root(View)类，这个是游戏的view入口，即程序会第一个载入该视图  
-    * 在Root类下添加如下方法，即可完成对刚刚创建的视图的载入  
-    * def Loading(self, **kwargs):  # view的载入方法  
-      * self.AddView(xxxx)  
-  * 常用的基本载入方法有:  
-    * .AddView(class, ...)  
-    * .AddComponent(string, **kwargs)  
-    * .LogController(string)  
-    * .SetPos(positon)  
-    * .SetSize(size)  
-  * 现在运行游戏，窗口内依然什么也没有，因为所有能显示在屏幕上的内容都由components决定  
-# 4.Pic组件  
-  * 游戏使用png格式的图片，将其放在.../data/img/下的任意文件夹内(比如/data/img/example/background.png)，文件名background则是游戏中使用的名称。因此，pgframe不允许图片重名，那怕它们不在同一个文件夹内；The game uses PNG format pictures and places them in any folder under... / data / img / (for example, / data / img / example/ background.png ）The file name background is the name used in the game. Therefore, pgframe does not allow images to have duplicate names, even if they are not in the same folder  
-  * 还有一种情况，将多张图片放在同一文件夹下，并在该文件目录下添加一个空的__init__.py文件，那么这个目录会被视为一个图片，该目录名即为游戏中使用的名称，不能与其他图片同名，该目录下的单个图片不与其他图片名称冲突In another case, put multiple pictures in the same folder and add an empty one to the file directory __init__.py file, then this directory will be treated as an image. The directory name is the name used in the game and cannot have the same name with other pictures. The single picture in this directory does not conflict with other picture names  
-  * 在程序编写时只需通过Pic组件和图片名即可使用图片，例如在重写某个class view的Loading方法是时为该view对象添加图片:；When writing a program, you only need to use the picture through the pic component and the picture name. For example, when the loading method of a class view is rewritten, add a picture to the view object:  
-  * class xxxx(View):  
-    * def Loading(self, **kwargs):  
-      * self.SetPos((100,100))  
-      * self.AddComponent('Pic', ArtDef='background')  
-  * Pic对象创建时的可选参数:;Optional parameters for PIC object creation:  
-  * """  
-    * Pic组件，用于显示图片或图片组  
-    * :param ArtDef: 艺术数据名String  
-    * :param scale: 缩放倍率Int 0-无限 (100->100%, 10->10%)(传入String类型能减少程序资源占用)  
-    * :param rotate: 旋转角度Int 0-360 (向上为0, 顺时针旋转)(传入String类型能减少程序资源占用)  
-    * :param hflip: 水平翻转Int 0/1(1表示水平翻转)(传入String类型能减少程序资源占用)  
-    * :param vflip: 竖直翻转Int 0/1(1表示竖直翻转)(传入String类型能减少程序资源占用)  
-    * :param center: 是否以中心为基准点Bool(传入False能减少程序资源占用)  
-    * :param tim: 图片间隔帧Int(只适用于多图片,控制图片播放时间隔的帧数)  
-    * :param keep_tim: 持续帧数Int(显示多少帧，大于此数时，该组件会被隐藏)  
-    * :param justify: Tuple(int, int) 图片位置微调  
-    * :param end_func: function(pic= Pic Components) 允许Pic即将Hide时激活函数  
-    * :param sign: String 设置组件在inst中的变量名称,None表示不添加  
-  * English vision：  
-    * Pic component for displaying pictures or picture groups  
-    * : param artdef: art data name string  
-    * : param scale: zoom ratio int 0 ~ infinite (100 - > 100%, 10 - > 10%) (passing in string type can reduce program resource consumption)  
-    * : param rotate: rotation angle int 0 ~ 360 (up = 0, clockwise rotation) (passing in string type can reduce program resource consumption)  
-    * : param hflip: horizontal flip int 0 / 1 (1 means horizon flip) (passing in string type can reduce program resource consumption)  
-    * : param vflip: vertical flip int 0 / 1 (1 means vertical flip) (passing in string type can reduce program resource consumption)  
-    * : param Center: whether to use the center as the reference point  
-    * : param Tim: picture interval frame int(It is only applicable to multiple pictures and controls the number of frames in the picture playback interval)  
-    * : param keep_Tim: number of consecutive frames int (how many frames are displayed, and when the number is greater, the component will be hidden)  
-    * : param justify: tuple (int, int) image position adjustment  
-    * : param end_Func: function (PIC = pic components) allows pic to activate the function when it is about to hide  
-    * : param sign: String sets the variable name of the component in inst, and none means not to add  
-  * """  
-  * 此外，框架提供了Area、Progress、Text、Collide、Locomotor组件，详细帮助请查看pgframe/components.py  
-# 5.Controller控制器  
-  * pass  
-  
-# EX.已知bug:
-  * 在队列播放背景音乐时，自动切换音乐时有很大时间差
-  * 在游戏已经启动后再添加Collide组件无法触发其碰撞函数
-# ------------------------------------------------------------------------------  
-我会附带上传一些例子，便于理解和模仿用法  
-translation by: Baidu Translation  
-    
-  
-    
+# **PyGame Frame**
+
+1. 简介:
+
+PgFrame(PyGame Frame)是一个用于快速便捷的开发中小型2d游戏的python模块(不支持对大型游戏的优化)，结构上使用高度单元化的模块结构构建游戏（通过搭建MVC的形式完成游戏的制作），可以使程序员更多的将精力集中于游戏逻辑，提高开发效率。
+
+程序结构上大致采用MVC的框架结构:
+
+![](RackMultipart20201202-4-qme167_html_3722cf59a5c275ee.png)
+
+(各部分间的调用顺序)
+
+Model: 算法部分 + 数据部分 (程序后台处理和数据管理)
+
+View: 视图部分 (主要控制用户界面)
+
+Contrller: 控制部分 (响应用户的外设输入)
+
+PgFrame主要基于pygame(绝大部分功能依赖于此)和numpy，另外还需要下载pillow、pywin32(因此该模块 **仅支持**** windows ****系统** )、pyinstaller(可以在安装pgframe后使用cmd命令pgframe support或者运行pgframe目录下的support.bat 来自动下载这些第三方库)
+
+PgFrame在底层上继承了PyGame灵活快速的特点(这使得PgFrame能在运行速度上比Pyglet和Cocos2d快上不少)，在框架上比pyglet具有更经典实用的框架结构(MVC)，在高层上也具有高自动化的组件(Component)作为支持；PgFrame的缺点为资源占用较大(与相同的pygame游戏相比能达到数倍的内存占用与cpu占用(这取决于游戏的规模，当游戏规模适中时这个倍率将接近于1))，必须多个文件同时工作才能正常运行，平台仅局限于windows(使用了pywin32导致的，然而由于pywin32在程序段中占比低，后期可以通过兼容mac和linux的方式支持这些系统)，且不支持3d，更新较慢。
+
+1. 入门使用
+
+下载对应的python whl文件后pip安装。安装完毕后使用pgframe version查看pgframe版本，若成功显示版本则安装成功
+
+![](RackMultipart20201202-4-qme167_html_e3a4a6964f0513.png)
+
+成功后若缺少开头提到的依赖库，使用cmd命令pgframe support自动安装这些库, 安装过程中没有报错即可完成安装.
+
+接下来我们创建一个带有图片的hello，world!例程:
+
+1. . 创建项目：
+
+打开cmd，输入pgframe new [path]([path]是你选择的文件夹路径，项目将创建在这个路径下，该路径下已有的文件将被移除)
+
+例如这里使用的路径是C:\Users\bluesky\Desktop\MyProject
+
+![](RackMultipart20201202-4-qme167_html_f4004198b01cea85.png)
+
+打开对应的项目目录，里面应当出现如下文件:
+
+![](RackMultipart20201202-4-qme167_html_d4563c33daeff3b5.png)
+
+**\_\_init\_\_.py** : 所有的\_\_init.py\_\_文件都没有实际的意义(这是在库安装时需要的)
+
+**data**** 目录**: 默认的资源文件存放的位置，具体路径可以在settings.py中更改
+
+**log**** 目录**: 默认的日志文件存放的位置，具体路径可以在settings.py中更改
+
+**build.xml** 文件: 打包配置文件
+
+**view.py** ：MVC的View部分，指用户看到并与之交互的界面。与传统的MVC有所不同的是：所有视图在程序中是真实发生了的，视图的主要功能是划分结构和层次，并作为载体组织其余的模块进行工作。
+
+**controllers.py** ：MVC的Controller部分，控制器接受用户的输入并调用模型和视图去完成用户的需求，与传统的MVC有所不同的是：控制器可以进行预判断而选择不同的算法和视图进行操作
+
+**models.py:** MVC的Model部分，模型用于实现游戏逻辑和有关算法，拥有最多的处理任务。与传统的MVC有所不同的是：模型还具有定义某种数据库中的数据的结构的作用。
+
+**components.py** : 组件，完成主要的显示工作以及各种各样的 **几乎所有** 的衍生功能，且可以在一个View中部署已有的任意数目的components来实现想要的功能。
+
+要自定义component就需要定义对应的帧函数effect(对应于pygame中的while中的一次循环)。 使用内置的已经编写好了的component即可满足日常编写需求, 所以该模块大部分时间并不需要用户编写，节省了开发时间。
+
+**event.py** : 事件管理，由于事件可以临时定义，所以该模块一般情况下用不到（以后可能会取消这个模块）
+
+**settings.py** : 游戏项目的设置，比如窗口刷新率、窗口尺寸、窗口大小等等的设置
+
+**main.py** : 项目运行入口，不用用户编写。完成其他文件的编写后执行main.py即可启动游戏。
+
+**DataMaganer.py** : 数据库管理程序，这是一个单独的基于tkinter的数据库管理，需要读取models.py中定义好的数据结构
+
+所以，更贴切一点的说， PgFrame的结构应当为MVC + C的结构，记做MCV-C:
+
+![](RackMultipart20201202-4-qme167_html_bd8aa38228f44d74.png)
+
+**一般来说，只需要用户先定义好**** settings.py ****，然后把资源文件放置于对应的文件夹下，最后编写**** models.py ****、**** controllers.py ****和**** views.py ****即可**
+
+1. .编写项目:
+
+①.按照第一点中的编写顺序，我们先修改settings.py中的内容:
+
+修改窗口大小为(300，200), 窗口标题为HelloWorld
+
+修改完成后运行main.py查看效果:
+
+![](RackMultipart20201202-4-qme167_html_88dfb34396bc8606.png)
+
+②.然后我们选择一张300x200的png格式的图片(test.png)放置于data/img/下:
+
+![](RackMultipart20201202-4-qme167_html_8ee4c898213b6b54.png)
+
+③.最后编写文件:
+
+由于我们的目的只是显示hello,world!和图片，所以这里我们只需编写views.py即可.
+
+打开views.py文件，里面已有一段内容:
+
+![](RackMultipart20201202-4-qme167_html_ef670ced7ae918c4.png)
+
+我们在Main.Loading下添加两行代码，分别实现图片和文本的效果:
+
+self.AddComponent(&quot;Pic&quot;, ArtDef=&quot;test&quot;) # 添加test图片
+
+self.AddComponent(&quot;Text&quot;,text=&quot;hello,world!&quot;,size=40,justify=(20,40),color=(255,197,50)) ![](RackMultipart20201202-4-qme167_html_60168087b2e37f48.png)
+
+还是运行main.py查看效果
+
+![](RackMultipart20201202-4-qme167_html_a5171442701c5d5b.png)
+
+(至此我们的入门项目就算完成了，更多的信息请查看函数文档和具体的实例)
+
+1. .\*打包项目:
+
+若依照安装步骤安装了pyinstaller，这可以对游戏项目进行打包，打开build.xml，修改好有关内容后关闭:
+
+![](RackMultipart20201202-4-qme167_html_dd0dc56074b29af.png)
+
+(这里作为单个文件打包)
+
+Cmd命令pgframe build [path](其中path是你的项目文件夹的路径)
+
+在该情形下，这里应当输入:
+
+pgframe build C:\Users\bluesky\Desktop\MyProject
+
+回车后，若没有出现异常，则应当出现如下的画面:
+
+![](RackMultipart20201202-4-qme167_html_f0b578c0a3ac810a.png)
+
+（最容易出现的问题则是.dll文件无法拷贝的情形，请关闭杀毒软件后重试）
+
+此时在项目文件夹下应当出现一个exported文件夹，里面就是我们打包好的.exe文件了:
+
+![](RackMultipart20201202-4-qme167_html_bede6c887cd9108c.png) ![](RackMultipart20201202-4-qme167_html_e5b3890612493c75.png)
+
+（有时可能会出现游戏所需资源没有拷贝完全的情况，请用户手动拷贝即可）
