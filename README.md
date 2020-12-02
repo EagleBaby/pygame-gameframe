@@ -1,4 +1,6 @@
- **PyGame Frame** ****
+ **PyGame Frame**
+#  本项目没有任何收益，本项目仅供学习交流，不得用于商业目的
+#  如有侵权，请告知作者2229066748@qq.com，随即将会删除该内容
 
 1.  简介:
 
@@ -137,7 +139,7 @@ self.AddComponent("Text",text="hello,world!",size=40,justify=(20,40),color=(255,
 
 (这里作为单个文件打包)
 
-Cmd命令pgframe build [path](其中path是你的项目文件夹的路径)
+Cmd命令pgframe build <path>(其中path是你的项目文件夹的路径)
 
 在该情形下，这里应当输入:
 
@@ -151,6 +153,6 @@ pgframe build C:\Users\bluesky\Desktop\MyProject
 
 此时在项目文件夹下应当出现一个exported文件夹，里面就是我们打包好的.exe文件了:
 
-![image](https://github.com/EagleBaby/pygame-gameframe/raw/master/images/PgFrame2830.png)![image](https://github.com/EagleBaby/pygame-gameframe/tree/master/images/PgFrame2831.png)
+![image](https://github.com/EagleBaby/pygame-gameframe/raw/master/images/PgFrame2830.png)![image](https://github.com/EagleBaby/pygame-gameframe/raw/master/images/PgFrame2831.png)
 
 （有时可能会出现游戏所需资源没有拷贝完全的情况，请用户手动拷贝即可）
