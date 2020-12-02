@@ -155,4 +155,3 @@ pgframe build C:\Users\bluesky\Desktop\MyProject
 
 ![image](https://github.com/EagleBaby/pygame-gameframe/raw/master/images/PgFrame2830.png)![image](https://github.com/EagleBaby/pygame-gameframe/raw/master/images/PgFrame2831.png)
 
-（有时可能会出现游戏所需资源没有拷贝完全的情况，请用户手动拷贝即可）
